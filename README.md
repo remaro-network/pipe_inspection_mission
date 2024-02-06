@@ -1,5 +1,6 @@
 # pipe_inspection_mission
-This repository contains the pipeline inspection mission example from our paper [Mission Planning and Safety Assessment for Pipeline Inspection Using Autonomous Underwater Vehicles: A Framework based on Behavior Trees](arxiv.org)
+This repository contains the pipeline inspection mission example from our paper [Mission Planning and Safety Assessment for Pipeline Inspection Using Autonomous Underwater Vehicles: A Framework based on Behavior Trees](arxiv.org).
+
 This example repository aims to demonstrate the framework introduced in the paper. A simple example of a squared trajectory is integrated withing the ROS2 packages `imcpy_ros_bridge` and `remaro_uw_sim`.
 
 ![graphical-abstract](media/GA.png)
@@ -15,6 +16,8 @@ This example repository aims to demonstrate the framework introduced in the pape
   - Dune: for setting the comunication and send commands to the AUV. Installation and usage instructions are available [here](github.com/LSTS/dune/wiki).
   - Neptus: Dune's graphical interface. Installation and usage instructions are available [here](github.com/LSTS/neptus/wiki).
 - UNavSim: for simulating realistic renderings of underwater environments, and getting sensor recordings such as camera, segmentation and IMU. Installation instructions available [here](https://github.com/open-airlab/UNav-Sim).
+- ROS2. These repos have been tested under ROS2 Foxy and Humble.
+- py_trees_ros. Installation instructions available [here](https://github.com/splintered-reality/py_trees_ros).
 
 
 ### Clone the Repository
@@ -25,6 +28,25 @@ git clone https://github.com/remaro-network/pipe_inspection_mission
 cd ..
 colcon build
 ```
+
+## Usage
+Here we will demonstrate the usage of the framework with a simple square trajectory example.
+
+### ROS topics
+The ROS2 topics published during the mission are:
+
+| Package                | Publisher node | Topic                              | Type                                   | Content                         |
+|------------------------|----------------|------------------------------------|----------------------------------------|---------------------------------|
+| `unavsim_ros_pkgs`     | `unavsim_node` | `/<camera_name>/Scene`             | `sensor_msgs/msg/Image`                | UNavSim RGB camera              |
+|                        |                | `/<camera_name>/Segmentation`      | `sensor_msgs/msg/Image`                | UNavSim segmentation labels    |
+|                        |                | `/<camera_name>/DepthPlanar`       | `sensor_msgs/msg/Image`                | UNavSim depth camera            |
+|                        |                | `/<camera_name>/Scene/camera_info` | `sensor_msgs/msg/CameraInfo`           | UNavSim camera intrinsics       |
+|                        |                | `/imu/Imu`                         | `sensor_msgs/msg/Imu`                  | UNavSim's IMU measurement       |
+|                        |                | `/altimeter/barometer`             | `unavsim_interfaces/msg/Altimeter`     | UNavSim altimeter measurements  |
+|                        |                | `/tf`                              | `tf2_msgs/msg/TFMessage`               | 6 DOF pose in UNavSim           |
+| `imcpy_ros_bridge`     | `imc2ros`      | `/from_imc/base_link`              | `geometry_msgs/msg/PoseStamped`        | 6 DOF pose in DUNE              |
+|                        |                | `/from_imc/estimated_state`        | `imc_ros_msgs/msg/EstimatedState`      | 6 DOF pose estimated by DUNE    |
+
 
 ## Acknowledgements
 
