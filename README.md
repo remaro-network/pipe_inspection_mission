@@ -7,7 +7,7 @@ This example repository aims to demonstrate the framework introduced in the pape
 
 ## Components
 - `imcpy_ros_bridge`: A bridge interface between IMC (Interface Message Control), ROS (Robot Operating System), and the behaviour trees, facilitating control, communication and data exchange in the robot mission.
-- `remaro_uw_sim`: package to bridge between UNavSim, ROS and Dune. It also includes a data recording script.
+- `remaro_uw_sim`: packages to bridge between UNavSim, ROS and Dune. It also includes a data recording script.
 
 ## Installation
 
@@ -21,7 +21,7 @@ This example repository aims to demonstrate the framework introduced in the pape
 
 
 ### Clone the Repository
-`imcpy_ros_bridge` and `remaro_uw_sim` are ROS2 packages. For ROS version compatibility we refer to the documentation from the original repos. You can clone this repository in your colcon workspace to compile these ROS packages as follows:
+`imcpy_ros_bridge` and `remaro_uw_sim` are ROS2 stacks (or metapackages, if you prefer). For ROS version compatibility we refer to the documentation from the original repos. You can clone this repository in your colcon workspace to compile these ROS stacks as follows:
 ```bash
 cd $HOME/<path-to-your-colcon-ws>/src
 git clone https://github.com/remaro-network/pipe_inspection_mission
@@ -31,6 +31,50 @@ colcon build
 
 ## Usage
 Here we will demonstrate the usage of the framework with a simple square trajectory example.
+The following figure shows, on the left, the ROS2 stacks `imcpy_ros_bridge` and `remaro_uw_sim` pointing to the files within the packages required to run the proposed example. On the right, the file structure that the dataset recorder scrips generates. 
+
+![ros-pkgs-structure](media/ros_pkgs.png)
+
+Let's set up an example of UNavSim working with a simulated OMST vehicle in Dune. For that, you will have Dune, Neptus, UNavSim, and this ROS node all working at the same time. In this example I will show you how to run them all one by one.
+
+1. **Dune**
+
+First, cd to your `dune/build` directory and run:
+
+```
+./dune -c lauv-simulator-1 -p Simulation
+```
+2. **Neptus**
+Then, from the directory where you cloned Neptus, execute Neptus as follows:
+
+```
+./neptus
+```
+In the Neptus interface, connecto to the `lauv-simulator-1` vehicle to see its state.
+
+3. **UNavSim**
+
+Then, form UNav-Sim, run the simulation in your favourite environment with the `AirSimGameMode` setup.
+
+4. **ROS**
+
+Finally, you can have Neptus and UNavSim running all at once with this ROS package. We have a launcher prepared for you that runs both the imcpy_ros_bridge  package (to bridge between Dune ROS) and the bridge between ROS and UNavSim within this package:
+
+```
+ros2 launch neptus_interface lauv_simulator_1.launch.py
+```
+
+You can record your own dataset with the sensor data from UNavSim with the `mimir_recorder` script. **Important note: this script and the rosbag recorder cannot work simultaneously. You have to choose one or the other.**
+
+```
+ros2 run unavsim_ros_pkgs mimir_recorder.py
+```
+
+To move the robot in the environment, you can use behaviour trees. You can try our example as:
+
+```
+ros2 launch imcpy_trees square_trajectory_launch.py
+```
 
 ### ROS topics
 The ROS2 topics published during the mission are:
