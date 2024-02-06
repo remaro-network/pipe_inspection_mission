@@ -96,7 +96,7 @@ The Image data looks like this:
 
 | RGB   |  Segmentation | Depth |
 :-------------------------:|:-------------------------:|:-------------------------:
-![rgb](media/RGB.gif)  |  ![alt text](media/segmentation.gif) |  #TODO
+![rgb](media/RGB.gif)  |  ![alt text](media/segmentation.gif) |  ![alt text](media/depth.gif)
 
 ## Acknowledgements
 
