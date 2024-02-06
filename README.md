@@ -35,17 +35,17 @@ Here we will demonstrate the usage of the framework with a simple square traject
 ### ROS topics
 The ROS2 topics published during the mission are:
 
-| Package                | Publisher node | Topic                              | Type                                   | Content                         |
-|------------------------|----------------|------------------------------------|----------------------------------------|---------------------------------|
-| `unavsim_ros_pkgs`     | `unavsim_node` | `/<camera_name>/Scene`             | `sensor_msgs/msg/Image`                | UNavSim RGB camera              |
-|                        |                | `/<camera_name>/Segmentation`      | `sensor_msgs/msg/Image`                | UNavSim segmentation labels    |
-|                        |                | `/<camera_name>/DepthPlanar`       | `sensor_msgs/msg/Image`                | UNavSim depth camera            |
-|                        |                | `/<camera_name>/Scene/camera_info` | `sensor_msgs/msg/CameraInfo`           | UNavSim camera intrinsics       |
-|                        |                | `/imu/Imu`                         | `sensor_msgs/msg/Imu`                  | UNavSim's IMU measurement       |
-|                        |                | `/altimeter/barometer`             | `unavsim_interfaces/msg/Altimeter`     | UNavSim altimeter measurements  |
-|                        |                | `/tf`                              | `tf2_msgs/msg/TFMessage`               | 6 DOF pose in UNavSim           |
-| `imcpy_ros_bridge`     | `imc2ros`      | `/from_imc/base_link`              | `geometry_msgs/msg/PoseStamped`        | 6 DOF pose in DUNE              |
-|                        |                | `/from_imc/estimated_state`        | `imc_ros_msgs/msg/EstimatedState`      | 6 DOF pose estimated by DUNE    |
+| Package                 | Publisher node  | Topic                               | Type                                             | Content                          |
+|-------------------------|-----------------|-------------------------------------|--------------------------------------------------|----------------------------------|
+| `unavsim_ros_pkgs`      | `unavsim_node`  | `/<camera_name>/Scene`              | [`sensor_msgs/msg/Image`](https://docs.ros2.org/latest/api/sensor_msgs/msg/Image.html) | UNavSim RGB camera               |
+|                         |                 | `/<camera_name>/Segmentation`       | [`sensor_msgs/msg/Image`](https://docs.ros2.org/latest/api/sensor_msgs/msg/Image.html) | UNavSim segmentation labels      |
+|                         |                 | `/<camera_name>/DepthPlanar`        | [`sensor_msgs/msg/Image`](https://docs.ros2.org/latest/api/sensor_msgs/msg/Image.html) | UNavSim depth camera             |
+|                         |                 | `/<camera_name>/Scene/camera_info`  | [`sensor_msgs/msg/CameraInfo`](https://docs.ros2.org/latest/api/sensor_msgs/msg/CameraInfo.html) | UNavSim camera intrinsics        |
+|                         |                 | `/imu/Imu`                          | [`sensor_msgs/msg/Imu`](https://docs.ros2.org/latest/api/sensor_msgs/msg/Imu.html)      | UNavSim's IMU measurement        |
+|                         |                 | `/altimeter/barometer`              | [`unavsim_interfaces/msg/Altimeter`](https://docs.ros2.org/latest/api/unavsim_interfaces/msg/Altimeter.html) | UNavSim altimeter measurements   |
+|                         |                 | `/tf`                               | [`tf2_msgs/msg/TFMessage`](https://docs.ros2.org/latest/api/tf2_msgs/msg/TFMessage.html) | 6 DOF pose in UNavSim            |
+| `imcpy_ros_bridge`      | `imc2ros`       | `/from_imc/base_link`               | [`geometry_msgs/msg/PoseStamped`](https://docs.ros2.org/latest/api/geometry_msgs/msg/PoseStamped.html) | 6 DOF pose in DUNE               |
+|                         |                 | `/from_imc/estimated_state`         | [`imc_ros_msgs/msg/EstimatedState`](https://docs.ros2.org/latest/api/imc_ros_msgs/msg/EstimatedState.html) | 6 DOF pose estimated by DUNE     |
 
 
 ## Acknowledgements
