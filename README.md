@@ -91,6 +91,12 @@ The ROS2 topics published during the mission are:
 | `imcpy_ros_bridge`      | `imc2ros`       | `/from_imc/base_link`               | [`geometry_msgs/msg/PoseStamped`](https://docs.ros2.org/latest/api/geometry_msgs/msg/PoseStamped.html) | 6 DOF pose in DUNE               |
 |                         |                 | `/from_imc/estimated_state`         | [`imc_ros_msgs/msg/EstimatedState`](https://docs.ros2.org/latest/api/imc_ros_msgs/msg/EstimatedState.html) | 6 DOF pose estimated by DUNE     |
 
+The Image data looks like this:
+
+
+| RGB   |  Segmentation | Depth |
+:-------------------------:|:-------------------------:|:-------------------------:
+![rgb](media/RGB.gif)  |  ![alt text](media/segmentation.gif) |  #TODO
 
 ## Acknowledgements
 
