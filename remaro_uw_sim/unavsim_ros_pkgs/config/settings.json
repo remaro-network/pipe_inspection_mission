@@ -1,0 +1,180 @@
+{
+    "SeeDocsAt": "https://github.com/Microsoft/AirSim/blob/master/docs/settings.md",
+    "SettingsVersion": 1.2,
+    "SimMode": "Rov",
+    "ViewMode": "NoDisplay",
+    "EnableCollisionPassthrogh": true,
+    "PawnPaths": {
+        "DefaultQuadrotor": {"PawnBP": "Class'/AirSim/Blueprints/BP_FlyingPawn.BP_FlyingPawn_C'"},
+        "DefaultRov": {"PawnBP": "Class'/AirSim/Blueprints/BP_RovPawn.BP_RovPawn_C'"},
+        "DefaultComputerVision": {"PawnBP": "Class'/AirSim/Blueprints/BP_ComputerVisionPawn.BP_ComputerVisionPawn_C'"}
+      },
+    "Vehicles": {
+        "RovSimple": {
+        "VehicleType": "RovSimple",
+        "DefaultVehicleState": "Armed",
+        "PawnPath": "DefaultRov",
+        "EnableCollisions": true,
+        "AllowAPIAlways": true,
+        "RC": {
+          "RemoteControlID": 0,
+          "AllowAPIWhenDisconnected": false
+        },
+  
+        "Cameras":{
+          "front_left": {
+            "CaptureSettings": [
+              {
+                  "PublishToRos": 0,
+                  "ImageType": 0,
+                  "Width": 720,
+                  "Height": 540,
+                  "FOV_Degrees": 110,
+                  "AutoExposureSpeed": 100,
+                  "AutoExposureBias": 0,
+                  "AutoExposureMaxBrightness": 0,
+                  "AutoExposureMinBrightness": 0,
+                  "MotionBlurAmount": 1,
+                  "TargetGamma": 1
+              },
+              {
+                "PublishToRos": 0,
+                "ImageType": 1,
+                "Width": 720,
+                "Height": 540,
+                "FOV_Degrees": 110
+  
+              },
+              {
+                "PublishToRos": 0,
+                "ImageType": 5,
+                "Width": 720,
+                "Height": 540,
+                "FOV_Degrees": 110
+  
+              }
+            ],
+            "X": 0.45,
+                      "Y": -0.06,
+                      "Z": 0.0,
+                      "Pitch": -15.0,
+                      "Roll": 0.0,
+                      "Yaw": 0.0
+          },
+  
+        "front_right": {
+          "CaptureSettings": [
+            {
+              "PublishToRos": 0,
+                "ImageType": 0,
+                "Width": 720,
+                "Height": 540,
+                "FOV_Degrees": 110,
+                "AutoExposureSpeed": 100,
+                "AutoExposureBias": 0,
+                "AutoExposureMaxBrightness": 1,
+                "AutoExposureMinBrightness": 1,
+                "MotionBlurAmount": 0,
+                "TargetGamma": 1
+            },
+            {
+              "PublishToRos": 0,
+              "ImageType": 1,
+              "Width": 720,
+              "Height": 540,
+              "FOV_Degrees": 110
+            },
+            {
+              "PublishToRos": 0,
+              "ImageType": 5,
+              "Width": 720,
+              "Height": 540,
+              "FOV_Degrees": 110
+            }
+          ],
+          "X": 0.45,
+          "Y": 0.06,
+          "Z": 0.0,
+          "Pitch": -15.0,
+          "Roll": 0.0,
+          "Yaw": 0.0
+        },
+  
+  
+      "bottom_center": {
+        "CaptureSettings": [
+          {
+            "PublishToRos": 0,
+              "ImageType": 0,
+              "Width": 720,
+              "Height": 540,
+              "FOV_Degrees": 110,
+              "AutoExposureSpeed": 100,
+              "AutoExposureBias": 0,
+              "AutoExposureMaxBrightness": 1,
+              "AutoExposureMinBrightness": 1,
+              "MotionBlurAmount": 0,
+              "TargetGamma": 1
+          },
+          {
+            "PublishToRos": 0,
+            "ImageType": 1,
+            "Width": 720,
+            "Height": 540,
+            "FOV_Degrees": 110
+          },
+          {
+            "PublishToRos": 0,
+            "ImageType": 5,
+            "Width": 720,
+            "Height": 540,
+            "FOV_Degrees": 110
+          }
+        ],
+        "X": 0.0,
+        "Y": 0.0,
+        "Z": 0.2,
+        "Pitch": 270.0,
+        "Roll": 0.0,
+        "Yaw": 0.0
+      }
+    },
+  
+        "Sensors": {
+          "Imu": {
+            "SensorType": 2,
+            "Enabled" : true,
+            "AngularRandomWalk": 0.3,
+            "GyroBiasStabilityTau": 500,
+            "GyroBiasStability": 4.6,
+            "VelocityRandomWalk": 0.24,
+            "AccelBiasStabilityTau": 800,
+            "AccelBiasStability": 36
+          }
+        },
+        "X": 0.0, "Y": 0.0, "Z": 0.0,
+        "Pitch": 0.0, "Roll": 0.0, "Yaw": 0.0
+      }
+    },
+  
+    "SubWindows": [
+      {
+        "WindowID": 0,
+        "ImageType": 0,
+        "CameraName": "front_left",
+        "Visible": true
+      },
+      {
+        "WindowID": 2,
+        "ImageType": 5,
+        "CameraName": "front_left",
+        "Visible": false
+      },
+      {
+        "WindowID": 1,
+        "ImageType": 9,
+        "CameraName": "front_left",
+        "Visible": false
+      }
+    ]
+  }

@@ -1,0 +1,47 @@
+{
+    "dataset_base_name": "MIMIR",
+    "dataset_base_path": "/Datasets",
+    "map_name": "Test",
+    "track_name": "0",
+    "distortion_coeffs":{ 
+        "front_left":{
+            "K1": 0, 
+            "k2": 0, 
+            "k3": 0, 
+            "P1": 0, 
+            "P2": 0.000000
+        },
+        "front_right":{
+            "K1": 0, 
+            "k2": 0, 
+            "k3": 0, 
+            "P1": 0, 
+            "P2": 0.000000
+        },
+        "bottom_center":{
+            "K1": 0, 
+            "k2": 0, 
+            "k3": 0, 
+            "P1": 0, 
+            "P2": 0.000000
+        }
+
+    },
+    "framerate": 30,
+    "imurate": 210,
+    "SegmentationIDs": { 
+
+        "SM_Urock": 20,
+        "Bubbles":0,
+        "Particle_Debris": 0,
+        "Particle_Fish": 0,
+        "Ske_Eel": 0,
+        "Pipe": 38,
+        "SM_KI-84": 6,
+        "SM_OceanPlane": 26,
+        "SM_Sub": 10,
+        "InstancedFoliageActor": 43,
+        "Landscape": 41,
+        "Sky": 37
+    }
+}
