@@ -1,5 +1,30 @@
 # pipe_inspection_mission
-hello world.
+This repository contains the pipeline inspection mission example from our paper [Mission Planning and Safety Assessment for Pipeline Inspection Using Autonomous Underwater Vehicles: A Framework based on Behavior Trees](arxiv.org)
+This example repository aims to demonstrate the framework introduced in the paper. A simple example of a squared trajectory is integrated withing the ROS2 packages `imcpy_ros_bridge` and `remaro_uw_sim`.
+
+![graphical-abstract](media/GA.png)
+
+## Components
+- `imcpy_ros_bridge`: A bridge interface between IMC (Interface Message Control), ROS (Robot Operating System), and the behaviour trees, facilitating control, communication and data exchange in the robot mission.
+- `remaro_uw_sim`: package to bridge between UNavSim, ROS and Dune. It also includes a data recording script.
+
+## Installation
+
+### Prerequisites
+- LSTS Toolchain components, for controlling the AUV:
+  - Dune: for setting the comunication and send commands to the AUV. Installation and usage instructions are available [here](github.com/LSTS/dune/wiki).
+  - Neptus: Dune's graphical interface. Installation and usage instructions are available [here](github.com/LSTS/neptus/wiki).
+- UNavSim: for simulating realistic renderings of underwater environments, and getting sensor recordings such as camera, segmentation and IMU. Installation instructions available [here](https://github.com/open-airlab/UNav-Sim).
+
+
+### Clone the Repository
+`imcpy_ros_bridge` and `remaro_uw_sim` are ROS2 packages. For ROS version compatibility we refer to the documentation from the original repos. You can clone this repository in your colcon workspace to compile these ROS packages as follows:
+```bash
+cd $HOME/<path-to-your-colcon-ws>/src
+git clone https://github.com/remaro-network/pipe_inspection_mission
+cd ..
+colcon build
+```
 
 ## Acknowledgements
 
@@ -16,9 +41,3 @@ This work is part of the Reliable AI for Marine Robotics (REMARO) Project. For m
 </a>
 
 This project has received funding from the European Union's Horizon 2020 research and innovation programme under the Marie Skłodowska-Curie grant agreement No. 956200.
-
-# Data index
-- [BlueROV sonar data recorded at TU Delft 3me pond \[ROS1\]](https://github.com/remaro-network/remaro_data/tree/main/bluerov_sonar_data_tudelft_pond_25_03_22)
-- [BlueROV sonar and camera data recorded at De Salamander windmill \[ROS1\]](https://github.com/remaro-network/remaro_data/tree/main/bluerov_sonar_camera_data_28_03_22)
-- [BlueROV sonar data recorded at TU Delft 3me pond \[ROS2\]](https://github.com/remaro-network/remaro_data/tree/main/bluerov_sonar_data_tudelft_pond_25_05_22)
-- [REMARO summer school 2022 data \[ROS2\]](https://github.com/remaro-network/remaro_data/tree/main/remaro_summer_school_2022)
